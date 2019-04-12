@@ -1,0 +1,49 @@
+.clima{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    background-size: cover;
+    background-position: center center;
+}
+.clima .termometro{
+    width: 25em;
+}
+.clima .termometro .temperatura{
+    font-size: 5em;
+    color: blue;
+    display: flex;
+    border: 0.1em solid rgba(0,0,255,0.8);
+    border-radius: 0.1em;
+}
+.clima .termometro .temperatura .grados{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1em 0.5em;
+    background: rgba(255,255,255,.5);
+    width: 70%;
+}
+.clima .termometro .temperatura .unidad{
+    background: rgba(0,0,255,0.8);
+    color: white;
+    padding: 0.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.clima .termometro .ubicacion{
+    font-size: 3em;
+    margin: 0 1em;
+    color: white;
+    background: rgba(0,0,255,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0em 0em 0.1em 0.1em;
+}
