@@ -17,7 +17,7 @@ export class AppComponent {
     this.get_ubicacion();
   }
 
-  get_iconos(){
+  get_iconos() {
     let estados = [
       'Clear',
       'Clear-night',
@@ -31,28 +31,33 @@ export class AppComponent {
       'Fog'
     ];
     this.iconos = {};
-    for(let estado of estados){
+    for (let estado of estados) {
       this.iconos[estado] = new Image();
       this.iconos[estado].src = './assets/img/iconos/' + estado + '.png';
     }
+    console.log('Iconos', this.iconos);
   }
 
   get_ubicacion() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        let lat: number = position.coords.latitude;
-        let long: number = position.coords.longitude;
-        this.get_clima(lat, long);
-      });
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          console.log('Position', position);
+          let lat: number = position.coords.latitude;
+          let long: number = position.coords.longitude;
+          this.get_clima(lat, long);
+        });
     }
   }
 
   get_clima(latitud: number, longitud: number) {
     this.http.get('https://fcc-weather-api.glitch.me/api/current?lat=' + latitud + '&lon=' + longitud).subscribe(
       result => {
+        console.log('Weather', result);
         let r: any = result;
         this.clima = new Clima(r.name, r.main.temp, r.weather[0].main, r.weather[0].description);
-        //setTimeout(this.get_clima.bind(this), 10000, latitud, longitud);
+        console.log('Clima', this.clima);
+        setTimeout(this.get_clima.bind(this), 60000, latitud, longitud);
       }
     );
   }
