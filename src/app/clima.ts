@@ -7,7 +7,7 @@ export class Clima {
 
     constructor(ubicacion_: string, grados_c_: number, estado_: string, descripcion_: string){
         this.ubicacion = ubicacion_;
-        this.grados_c = parseInt(grados_c_.toString());
+        this.grados_c = parseFloat(grados_c_.toFixed(2));
         this.estado = estado_;
         this.descripcion = descripcion_;
     }
